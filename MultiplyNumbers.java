@@ -20,13 +20,13 @@ public class MultiplyNumbers {
         int za = -1;
         String answer = "";
         for (int j = second.length()-1; j>=0; j--) {
-            int multiplier = Character.getNumericValue(second.charAt(j));      //second.charAt(j) - '0';
+            int multiplier = Character.getNumericValue(second.charAt(j));
             int carry = 0;
 
             StringBuilder rowans = getZeroAppendedRowAnsAccumulator(za);
             za++;
             for (int i = first.length()-1; i>=0; i--) {
-                int digit = Character.getNumericValue(first.charAt(i));    //first.charAt(i) - '0';
+                int digit = Character.getNumericValue(first.charAt(i));
                 int fullAns = (digit * multiplier) + carry;
                 int ans = fullAns%10;
                 carry = fullAns/10;
@@ -55,7 +55,7 @@ public class MultiplyNumbers {
         int carry = 0;
         StringBuilder sb = new StringBuilder();
         for (int i = s.length - 1; i >=0 ; i--) {
-            int ans = (f[i] - '0') + (s[i] - '0') + carry;
+            int ans = Character.getNumericValue(f[i]) + Character.getNumericValue(s[i]) + carry;
             sb.insert(0, ans%10);
             carry = ans/10;
         }
