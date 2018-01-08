@@ -1,2 +1,2 @@
 # codes
-Sample codes to some problems
+Solutions of some code problems in Java
