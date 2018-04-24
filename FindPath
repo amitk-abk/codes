@@ -1,0 +1,43 @@
+package com.mycomp.proj;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FindPath {
+
+    private static Map<String, String> route = new HashMap<>();
+
+    public static void main(String[] args) {
+        System.out.println("First project");
+        FindPath fp = new FindPath();
+        fp.addToRoute("Delhi", "Kolkata");
+        fp.addToRoute("Bangalore", "Chennai");
+        fp.addToRoute("Chennai", "Mumbai");
+        fp.addToRoute("Kolkata", "Bangalore");
+
+        fp.drawRoute(fp.getStartingPoint());
+    }
+
+    private void addToRoute(String from, String to) {
+        route.put(from, to);
+    }
+
+    private String getStartingPoint() {
+        for (Map.Entry<String, String> entry : route.entrySet()) {
+            String from = entry.getKey();
+            if (!route.containsValue(from))
+                return from;
+        }
+        return "";
+    }
+
+    private void drawRoute(String origin) {
+        StringBuilder sb = new StringBuilder("From ");
+        sb.append(origin).append(" to ");
+        while (route.containsKey(origin)) {
+            origin = route.get(origin);
+            sb.append(origin).append(" to ");
+        }
+        System.out.println("Path is:" + sb.toString());
+    }
+}
